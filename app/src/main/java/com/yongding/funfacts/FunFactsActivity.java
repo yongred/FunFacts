@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -25,7 +26,7 @@ public class FunFactsActivity extends Activity {
         // Declare our View variables and assign the Views from the layout file
         final RelativeLayout RLayout = (RelativeLayout) findViewById(R.id.RLayout);
         final TextView factLabel = (TextView) findViewById(R.id.factTextView);
-        Button showFactButton = (Button)findViewById(R.id.showFactButton);
+        final Button showFactButton = (Button)findViewById(R.id.showFactButton);
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,11 +38,13 @@ public class FunFactsActivity extends Activity {
                 //new background color
                 int bckColor = Color.argb(255, rand.nextInt(256),  rand.nextInt(256),  rand.nextInt(256));
                 RLayout.setBackgroundColor(bckColor);
+                showFactButton.setTextColor(bckColor);
                 //update the label with our dynamic fact
                 factLabel.setText(fact);
             } // end onclick
         }; // end OnClickListener
         showFactButton.setOnClickListener(listener);
+        Toast.makeText(this, "Welcome to FunFact!", Toast.LENGTH_LONG).show();
     }   //end onCreate
 
 }
