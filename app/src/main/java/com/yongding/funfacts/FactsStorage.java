@@ -36,7 +36,7 @@ public class FactsStorage {
 
     public String getRandomFacts(){
         Random rand = new Random();
-        int index = rand.nextInt(11);
+        int index = rand.nextInt(facts.length);
         return new String(facts[index]);
     }
 }
